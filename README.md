@@ -1,6 +1,6 @@
 # golub
 
-Messenger
+Messenger 🇺🇦
 
 ## Getting Started
 
