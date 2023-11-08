@@ -1,4 +1,3 @@
-/// Main app assets icons, images, etc.
 class AppAssets {
   static const String _base = 'assets';
   static const String _icons = '$_base/icons';

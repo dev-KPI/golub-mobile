@@ -1,4 +1,3 @@
-/// App sizes
 class AppSizes {
   /// Bottom navigation bar
   static double bottomNavigationBarHeight = 86.0;
