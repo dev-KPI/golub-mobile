@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golub/src/presentation/navigation/app_routes.dart';
+import 'package:golub/src/presentation/ui_kit/theme/app_assets.dart';
+import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,17 +22,19 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  Future<void> _initialization() async {
-    await Future.delayed(const Duration(seconds: 2));
-  }
+  Future<void> _initialization() async =>
+    Future.delayed(const Duration(seconds: 2));
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          'SplashScreen',
-        ),
+    return Container(
+      alignment: Alignment.center,
+      decoration: const BoxDecoration(
+        gradient: AppStyles.mixBlueGrayRadialGradient,
+      ),
+      child: SvgPicture.asset(
+        AppAssets.splashLogo,
+        fit: BoxFit.cover,
       ),
     );
   }

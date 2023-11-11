@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 
 class AppTextStyles {
   static const TextStyle _ubuntu = TextStyle(
@@ -38,5 +39,15 @@ class AppTextStyles {
   static final TextStyle bodySmall = _roboto.copyWith(
     fontSize: 15.0,
     fontWeight: FontWeight.w400,
+  );
+}
+
+class AppStyles {
+  static const RadialGradient mixBlueGrayRadialGradient = RadialGradient(
+    colors: [
+      AppColors.mixBlueGray,
+      AppColors.mixBlueGray1,
+    ],
+    radius: 1.5,
   );
 }
