@@ -1,4 +1,7 @@
 {
  "@@locale": "en",
- "labelContacts": "Contacts"
+ "labelContacts": "Contacts",
+ "authScreenTitle": "Authentication",
+ "authScreenDescription": "Enter your email and get dynamically generated code",
+ "authScreenButtonLabel": "Next"
 }

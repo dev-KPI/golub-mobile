@@ -59,6 +59,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Authentication`
+  String get authScreenTitle {
+    return Intl.message(
+      'Authentication',
+      name: 'authScreenTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email and get dynamically generated code`
+  String get authScreenDescription {
+    return Intl.message(
+      'Enter your email and get dynamically generated code',
+      name: 'authScreenDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get authScreenButtonLabel {
+    return Intl.message(
+      'Next',
+      name: 'authScreenButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

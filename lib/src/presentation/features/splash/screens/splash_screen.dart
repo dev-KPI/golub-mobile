@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _initialization().then((_) {
-      context.goNamed(AppRoutes.chats);
+      context.goNamed(AppRoutes.auth);
     });
   }
 

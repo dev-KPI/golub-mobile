@@ -1,4 +1,7 @@
 {
   "@@locale": "uk",
-  "labelContacts": "Контакти"
+  "labelContacts": "Контакти",
+  "authScreenTitle": "Авторизація",
+  "authScreenDescription": "Введіть адрес вашої електроної пошти та отримайте код авторизації",
+  "authScreenButtonLabel": "Далі"
 }

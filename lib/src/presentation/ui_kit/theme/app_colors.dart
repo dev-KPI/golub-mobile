@@ -24,4 +24,8 @@ class AppColors {
 
   static const Color mixBlueGray = Color(0xFFF3F2F8);
   static const Color mixBlueGray1 = Color(0xFFD6DAEB);
+
+  static const Color gradientIndigo = Color(0xFF92A0DE);
+  static const Color gradientBlue = Color(0xFF2D6DCD);
+
 }

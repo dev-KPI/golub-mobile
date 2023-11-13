@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:golub/src/presentation/features/auth/screens/auth_screen.dart';
 import 'package:golub/src/presentation/features/chats/screens/chats_screen.dart';
 import 'package:golub/src/presentation/features/contacts/screens/contacts_screen.dart';
 import 'package:golub/src/presentation/features/profile/screens/profile_screen.dart';
@@ -22,6 +23,13 @@ final routerConfig = GoRouter(
       path: AppRoutes.getPath(AppRoutes.splash),
       builder: (BuildContext context, GoRouterState state) {
         return const SplashScreen();
+      },
+    ),
+    GoRoute(
+      name: AppRoutes.auth,
+      path: AppRoutes.getPath(AppRoutes.auth),
+      builder: (BuildContext context, GoRouterState state) {
+        return const AuthScreen();
       },
     ),
     StatefulShellRoute.indexedStack(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:golub/generated/l10n.dart';
 import 'package:golub/src/presentation/navigation/app_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:golub/src/presentation/ui_kit/theme/themes/light_theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -13,6 +14,7 @@ class App extends StatelessWidget {
       // themeMode: themeState.currentThemeMode,
       // theme: themeState.currentTheme,
       // darkTheme: themeState.currentThemeDark,
+      theme: lightTheme,
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
