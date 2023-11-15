@@ -22,6 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "authScreenButtonLabel": MessageLookupByLibrary.simpleMessage("Next"),
+        "authScreenDescription": MessageLookupByLibrary.simpleMessage(
+            "Enter your email and get dynamically generated code"),
+        "authScreenTitle":
+            MessageLookupByLibrary.simpleMessage("Authentication"),
         "labelContacts": MessageLookupByLibrary.simpleMessage("Contacts")
       };
 }
