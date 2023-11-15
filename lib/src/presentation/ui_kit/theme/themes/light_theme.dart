@@ -24,4 +24,18 @@ final lightTheme = ThemeData(
       color: AppColors.baseBlack,
     ),
   ),
+  inputDecorationTheme: InputDecorationTheme(
+    hintStyle: AppTextStyles.bodyMedium,
+    fillColor: AppColors.baseWhite,
+    contentPadding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+    filled: true,
+    focusedBorder: OutlineInputBorder(
+      borderSide: const BorderSide(color: AppColors.baseWhite),
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: const BorderSide(color: AppColors.baseWhite),
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+  ),
 );

@@ -26,22 +26,28 @@ class ElevatedButtonWidget extends StatelessWidget {
         minHeight: height ?? AppSizes.elevatedButtonHeight,
       ),
       decoration: BoxDecoration(
-        gradient: AppStyles.elevatedButtonGradient,
+        gradient: AppStyles.bluePurpleGradient,
         borderRadius: BorderRadius.circular(
-          borderRadius ?? AppSizes.elevatedButtonBorderRadius),
+          borderRadius ?? AppSizes.elevatedButtonBorderRadius
+        ),
       ),
       child: ElevatedButton(
         onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(
-            borderRadius ?? AppSizes.elevatedButtonBorderRadius)),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+          shadowColor: MaterialStateProperty.all(Colors.transparent),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                borderRadius ?? AppSizes.elevatedButtonBorderRadius
+              ),
+            ),
+          ),
         ),
         child: Text(
           buttonLabel,
         ),
-      )
+      ),
     );
   }
 }

@@ -54,10 +54,21 @@ class AppStyles {
     radius: 1.5,
   );
 
-  static const LinearGradient elevatedButtonGradient = LinearGradient(
+  static const LinearGradient bluePurpleGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
     colors: [
       AppColors.gradientIndigo,
       AppColors.gradientBlue,
+    ],
+  );
+
+  static const LinearGradient blueWhiteGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      AppColors.gradientWhite,
+      AppColors.baseWhite,
     ],
   );
 }

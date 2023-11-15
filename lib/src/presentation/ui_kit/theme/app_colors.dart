@@ -27,5 +27,5 @@ class AppColors {
 
   static const Color gradientIndigo = Color(0xFF92A0DE);
   static const Color gradientBlue = Color(0xFF2D6DCD);
-
+  static const Color gradientWhite = Color(0XFFE0EDFF);
 }
