@@ -89,6 +89,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Email`
+  String get authScreenEmailPlaceholder {
+    return Intl.message(
+      'Email',
+      name: 'authScreenEmailPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I agree to `
+  String get iAgreeLabel {
+    return Intl.message(
+      'I agree to ',
+      name: 'iAgreeLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicyLabel {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicyLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms & Conditions`
+  String get termsAndConditionsLabel {
+    return Intl.message(
+      'Terms & Conditions',
+      name: 'termsAndConditionsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` and `
+  String get andLabel {
+    return Intl.message(
+      ' and ',
+      name: 'andLabel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

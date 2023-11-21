@@ -37,5 +37,12 @@ final lightTheme = ThemeData(
       borderSide: const BorderSide(color: AppColors.baseWhite),
       borderRadius: BorderRadius.circular(16.0),
     ),
+    disabledBorder: OutlineInputBorder(
+      borderSide: const BorderSide(color: AppColors.baseWhite),
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+  ),
+  progressIndicatorTheme: const ProgressIndicatorThemeData(
+    color: AppColors.baseWhite,
   ),
 );

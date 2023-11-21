@@ -3,5 +3,10 @@
  "labelContacts": "Contacts",
  "authScreenTitle": "Authentication",
  "authScreenDescription": "Enter your email and get dynamically generated code",
- "authScreenButtonLabel": "Next"
+ "authScreenButtonLabel": "Next",
+ "authScreenEmailPlaceholder": "Email",
+ "iAgreeLabel": "I agree to ",
+ "privacyPolicyLabel": "Privacy Policy",
+ "termsAndConditionsLabel": "Terms & Conditions",
+ "andLabel": " and "
 }

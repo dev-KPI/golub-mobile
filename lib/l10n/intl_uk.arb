@@ -3,5 +3,10 @@
   "labelContacts": "Контакти",
   "authScreenTitle": "Авторизація",
   "authScreenDescription": "Введіть адрес вашої електроної пошти та отримайте код авторизації",
-  "authScreenButtonLabel": "Далі"
+  "authScreenButtonLabel": "Далі",
+  "authScreenEmailPlaceholder": "Емайл",
+  "iAgreeLabel": "Я погоджуюсь з ",
+  "privacyPolicyLabel": "Політикою приватності",
+  "termsAndConditionsLabel": "Умовами та положеннями",
+  "andLabel": " та "
 }
