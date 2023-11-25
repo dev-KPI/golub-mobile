@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email"),
         "authScreenTitle":
             MessageLookupByLibrary.simpleMessage("Authentication"),
+        "authScreenValidationEmailError":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "iAgreeLabel": MessageLookupByLibrary.simpleMessage("I agree to "),
         "labelContacts": MessageLookupByLibrary.simpleMessage("Contacts"),
         "privacyPolicyLabel":

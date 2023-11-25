@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `Please enter a valid email`
+  String get authScreenValidationEmailError {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'authScreenValidationEmailError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `I agree to `
   String get iAgreeLabel {
     return Intl.message(

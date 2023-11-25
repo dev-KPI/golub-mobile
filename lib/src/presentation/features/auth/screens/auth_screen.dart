@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:golub/generated/l10n.dart';
+import 'package:golub/src/core/di/injectable.dart';
 import 'package:golub/src/domain/blocs/auth/auth_bloc.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
@@ -17,15 +18,30 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  final AuthBloc _authBloc = AuthBloc();
+  final AuthBloc _authBloc = getIt<AuthBloc>();
+
+  final TextEditingController _emailController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
 
   final TapGestureRecognizer _termsConditionsTapRecognizer =
-    TapGestureRecognizer();
+      TapGestureRecognizer();
   final TapGestureRecognizer _privacyPolicyTapRecognizer =
-    TapGestureRecognizer();
+      TapGestureRecognizer();
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController.addListener(_handleEmailString);
+  }
+
+  void _handleEmailString() {
+    _authBloc.add(ChangeEmailEvent(_emailController.text));
+  }
 
   @override
   void dispose() {
+    _emailController.removeListener(_handleEmailString);
+    _emailController.dispose();
     _termsConditionsTapRecognizer.dispose();
     _privacyPolicyTapRecognizer.dispose();
     super.dispose();
@@ -46,7 +62,8 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+              padding:
+                  const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,10 +83,16 @@ class _AuthScreenState extends State<AuthScreen> {
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 16.0),
-                    TextFieldWidget(
-                      hintText: s.authScreenEmailPlaceholder,
-                      error: 'Error',
-                    ),
+                    BlocBuilder(
+                        bloc: _authBloc,
+                        builder: (BuildContext context, AuthState state) {
+                          return TextFieldWidget(
+                            textEditingController: _emailController,
+                            focusNode: _emailFocusNode,
+                            hintText: s.authScreenEmailPlaceholder,
+                            error: state.validationError,
+                          );
+                        }),
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 60.0,
@@ -86,10 +109,9 @@ class _AuthScreenState extends State<AuthScreen> {
                               builder: (BuildContext context, AuthState state) {
                                 return Checkbox(
                                   materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
+                                      MaterialTapTargetSize.shrinkWrap,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4.0)
-                                  ),
+                                      borderRadius: BorderRadius.circular(4.0)),
                                   side: const BorderSide(
                                     color: Colors.black,
                                     width: 1.0,
@@ -98,7 +120,8 @@ class _AuthScreenState extends State<AuthScreen> {
                                   activeColor: AppColors.brightLightPurple,
                                   value: state.privacyPolicyAccepted,
                                   onChanged: (bool? value) => _authBloc.add(
-                                    ChangePrivacyPolicyStatusEvent(value ?? false),
+                                    ChangePrivacyPolicyStatusEvent(
+                                        value ?? false),
                                   ),
                                 );
                               },
@@ -115,21 +138,23 @@ class _AuthScreenState extends State<AuthScreen> {
                                   TextSpan(
                                     recognizer: _termsConditionsTapRecognizer
                                       ..onTap = () =>
-                                      launchLink('https://google.com'),
+                                          launchLink('https://google.com'),
                                     text: s.termsAndConditionsLabel,
-                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: AppColors.brightBlue
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(color: AppColors.brightBlue),
                                   ),
                                   TextSpan(text: s.andLabel),
                                   TextSpan(
                                     recognizer: _privacyPolicyTapRecognizer
                                       ..onTap = () =>
-                                      launchLink('https://google.com'),
+                                          launchLink('https://google.com'),
                                     text: s.privacyPolicyLabel,
-                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: AppColors.brightBlue
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(color: AppColors.brightBlue),
                                   ),
                                 ],
                               ),
@@ -143,9 +168,8 @@ class _AuthScreenState extends State<AuthScreen> {
                       builder: (BuildContext context, AuthState state) {
                         return ElevatedButtonWidget(
                           isDisabled: _authBloc.isButtonDisabled,
-                          onPressed: () {
-                            print('onPressed');
-                          },
+                          onPressed: () =>
+                            _authBloc.add(AuthenticateByEmailEvent()),
                           buttonLabel: s.authScreenButtonLabel,
                         );
                       },

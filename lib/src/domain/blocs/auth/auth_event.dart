@@ -2,14 +2,14 @@ part of 'auth_bloc.dart';
 
 abstract class AuthEvent {}
 
-class ChangeEmailFieldEvent extends AuthEvent {
+class ChangeEmailEvent extends AuthEvent {
   final String value;
-
-  ChangeEmailFieldEvent(this.value);
+  ChangeEmailEvent(this.value);
 }
 
 class ChangePrivacyPolicyStatusEvent extends AuthEvent {
   final bool value;
-
   ChangePrivacyPolicyStatusEvent(this.value);
 }
+
+class AuthenticateByEmailEvent extends AuthEvent {}

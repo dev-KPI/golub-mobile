@@ -5,6 +5,7 @@
  "authScreenDescription": "Enter your email and get dynamically generated code",
  "authScreenButtonLabel": "Next",
  "authScreenEmailPlaceholder": "Email",
+ "authScreenValidationEmailError": "Please enter a valid email",
  "iAgreeLabel": "I agree to ",
  "privacyPolicyLabel": "Privacy Policy",
  "termsAndConditionsLabel": "Terms & Conditions",

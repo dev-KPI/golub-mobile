@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthState {
   AuthStatus get status => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  String? get validationError => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   bool get privacyPolicyAccepted => throw _privateConstructorUsedError;
 
@@ -34,6 +35,7 @@ abstract class $AuthStateCopyWith<$Res> {
   $Res call(
       {AuthStatus status,
       String email,
+      String? validationError,
       String? error,
       bool privacyPolicyAccepted});
 }
@@ -53,6 +55,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? status = null,
     Object? email = null,
+    Object? validationError = freezed,
     Object? error = freezed,
     Object? privacyPolicyAccepted = null,
   }) {
@@ -65,6 +68,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      validationError: freezed == validationError
+          ? _value.validationError
+          : validationError // ignore: cast_nullable_to_non_nullable
+              as String?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -88,6 +95,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
   $Res call(
       {AuthStatus status,
       String email,
+      String? validationError,
       String? error,
       bool privacyPolicyAccepted});
 }
@@ -105,6 +113,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? email = null,
+    Object? validationError = freezed,
     Object? error = freezed,
     Object? privacyPolicyAccepted = null,
   }) {
@@ -117,6 +126,10 @@ class __$$AuthStateImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      validationError: freezed == validationError
+          ? _value.validationError
+          : validationError // ignore: cast_nullable_to_non_nullable
+              as String?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -135,6 +148,7 @@ class _$AuthStateImpl implements _AuthState {
   const _$AuthStateImpl(
       {this.status = AuthStatus.initial,
       this.email = '',
+      this.validationError = null,
       this.error = null,
       this.privacyPolicyAccepted = false});
 
@@ -146,6 +160,9 @@ class _$AuthStateImpl implements _AuthState {
   final String email;
   @override
   @JsonKey()
+  final String? validationError;
+  @override
+  @JsonKey()
   final String? error;
   @override
   @JsonKey()
@@ -153,7 +170,7 @@ class _$AuthStateImpl implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(status: $status, email: $email, error: $error, privacyPolicyAccepted: $privacyPolicyAccepted)';
+    return 'AuthState(status: $status, email: $email, validationError: $validationError, error: $error, privacyPolicyAccepted: $privacyPolicyAccepted)';
   }
 
   @override
@@ -163,14 +180,16 @@ class _$AuthStateImpl implements _AuthState {
             other is _$AuthStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.validationError, validationError) ||
+                other.validationError == validationError) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.privacyPolicyAccepted, privacyPolicyAccepted) ||
                 other.privacyPolicyAccepted == privacyPolicyAccepted));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, email, error, privacyPolicyAccepted);
+  int get hashCode => Object.hash(runtimeType, status, email, validationError,
+      error, privacyPolicyAccepted);
 
   @JsonKey(ignore: true)
   @override
@@ -183,6 +202,7 @@ abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {final AuthStatus status,
       final String email,
+      final String? validationError,
       final String? error,
       final bool privacyPolicyAccepted}) = _$AuthStateImpl;
 
@@ -190,6 +210,8 @@ abstract class _AuthState implements AuthState {
   AuthStatus get status;
   @override
   String get email;
+  @override
+  String? get validationError;
   @override
   String? get error;
   @override

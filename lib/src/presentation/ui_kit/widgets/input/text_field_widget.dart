@@ -4,8 +4,14 @@ import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 class TextFieldWidget extends StatelessWidget {
   final String? hintText;
   final String? error;
+  final TextEditingController? textEditingController;
+  final FocusNode? focusNode;
+  final VoidCallback? onEditingComplete;
 
   const TextFieldWidget({
+    this.textEditingController,
+    this.focusNode,
+    this.onEditingComplete,
     this.hintText,
     this.error,
     super.key
@@ -19,6 +25,9 @@ class TextFieldWidget extends StatelessWidget {
         minHeight: 52.0,
       ),
       child: TextField(
+        controller: textEditingController,
+        focusNode: focusNode,
+        onEditingComplete: onEditingComplete,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
           color: Theme.of(context).brightness == Brightness.light ?
             AppColors.baseBlack : AppColors.baseWhite,

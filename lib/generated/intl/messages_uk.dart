@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "authScreenEmailPlaceholder":
             MessageLookupByLibrary.simpleMessage("Емайл"),
         "authScreenTitle": MessageLookupByLibrary.simpleMessage("Авторизація"),
+        "authScreenValidationEmailError":
+            MessageLookupByLibrary.simpleMessage("Введіть коректний емайл"),
         "iAgreeLabel": MessageLookupByLibrary.simpleMessage("Я погоджуюсь з "),
         "labelContacts": MessageLookupByLibrary.simpleMessage("Контакти"),
         "privacyPolicyLabel":
