@@ -9,5 +9,7 @@
  "iAgreeLabel": "I agree to ",
  "privacyPolicyLabel": "Privacy Policy",
  "termsAndConditionsLabel": "Terms & Conditions",
- "andLabel": " and "
+ "andLabel": " and ",
+ "verificationScreenTitle": "Check your Email",
+ "verificationScreenDescription": "Paste dynamically generated code"
 }

@@ -36,6 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicyLabel":
             MessageLookupByLibrary.simpleMessage("Політикою приватності"),
         "termsAndConditionsLabel":
-            MessageLookupByLibrary.simpleMessage("Умовами та положеннями")
+            MessageLookupByLibrary.simpleMessage("Умовами та положеннями"),
+        "verificationScreenDescription": MessageLookupByLibrary.simpleMessage(
+            "Вставте динамічно згенерований код"),
+        "verificationScreenTitle": MessageLookupByLibrary.simpleMessage(
+            "Перевірте свою електронну пошту")
       };
 }

@@ -37,6 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicyLabel":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "termsAndConditionsLabel":
-            MessageLookupByLibrary.simpleMessage("Terms & Conditions")
+            MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
+        "verificationScreenDescription": MessageLookupByLibrary.simpleMessage(
+            "Paste dynamically generated code"),
+        "verificationScreenTitle":
+            MessageLookupByLibrary.simpleMessage("Check your Email")
       };
 }

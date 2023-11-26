@@ -9,5 +9,7 @@
   "iAgreeLabel": "Я погоджуюсь з ",
   "privacyPolicyLabel": "Політикою приватності",
   "termsAndConditionsLabel": "Умовами та положеннями",
-  "andLabel": " та "
+  "andLabel": " та ",
+  "verificationScreenTitle": "Перевірте свою електронну пошту",
+  "verificationScreenDescription": "Вставте динамічно згенерований код"
 }

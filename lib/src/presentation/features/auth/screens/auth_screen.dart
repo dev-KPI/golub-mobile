@@ -1,9 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golub/generated/l10n.dart';
 import 'package:golub/src/core/di/injectable.dart';
 import 'package:golub/src/domain/blocs/auth/auth_bloc.dart';
+import 'package:golub/src/presentation/navigation/app_router.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
 import 'package:golub/src/presentation/ui_kit/ui.dart';
@@ -24,9 +26,9 @@ class _AuthScreenState extends State<AuthScreen> {
   final FocusNode _emailFocusNode = FocusNode();
 
   final TapGestureRecognizer _termsConditionsTapRecognizer =
-      TapGestureRecognizer();
+    TapGestureRecognizer();
   final TapGestureRecognizer _privacyPolicyTapRecognizer =
-      TapGestureRecognizer();
+    TapGestureRecognizer();
 
   @override
   void initState() {
@@ -77,22 +79,23 @@ class _AuthScreenState extends State<AuthScreen> {
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
-                    const SizedBox(height: 12.0),
+                    const SizedBox(height: 32.0),
                     Text(
                       s.authScreenDescription,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 16.0),
                     BlocBuilder(
-                        bloc: _authBloc,
-                        builder: (BuildContext context, AuthState state) {
-                          return TextFieldWidget(
-                            textEditingController: _emailController,
-                            focusNode: _emailFocusNode,
-                            hintText: s.authScreenEmailPlaceholder,
-                            error: state.validationError,
-                          );
-                        }),
+                      bloc: _authBloc,
+                      builder: (BuildContext context, AuthState state) {
+                        return TextFieldWidget(
+                          textEditingController: _emailController,
+                          focusNode: _emailFocusNode,
+                          hintText: s.authScreenEmailPlaceholder,
+                          error: state.validationError,
+                        );
+                      }
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 60.0,
@@ -109,9 +112,9 @@ class _AuthScreenState extends State<AuthScreen> {
                               builder: (BuildContext context, AuthState state) {
                                 return Checkbox(
                                   materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
+                                    MaterialTapTargetSize.shrinkWrap,
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4.0)),
+                                    borderRadius: BorderRadius.circular(4.0)),
                                   side: const BorderSide(
                                     color: Colors.black,
                                     width: 1.0,
@@ -121,7 +124,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   value: state.privacyPolicyAccepted,
                                   onChanged: (bool? value) => _authBloc.add(
                                     ChangePrivacyPolicyStatusEvent(
-                                        value ?? false),
+                                      value ?? false),
                                   ),
                                 );
                               },
@@ -138,23 +141,23 @@ class _AuthScreenState extends State<AuthScreen> {
                                   TextSpan(
                                     recognizer: _termsConditionsTapRecognizer
                                       ..onTap = () =>
-                                          launchLink('https://google.com'),
+                                        launchLink('https://google.com'),
                                     text: s.termsAndConditionsLabel,
                                     style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall
+                                      .textTheme
+                                      .bodySmall
                                         ?.copyWith(color: AppColors.brightBlue),
                                   ),
                                   TextSpan(text: s.andLabel),
                                   TextSpan(
                                     recognizer: _privacyPolicyTapRecognizer
                                       ..onTap = () =>
-                                          launchLink('https://google.com'),
+                                        launchLink('https://google.com'),
                                     text: s.privacyPolicyLabel,
                                     style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall
-                                        ?.copyWith(color: AppColors.brightBlue),
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(color: AppColors.brightBlue),
                                   ),
                                 ],
                               ),
@@ -163,11 +166,19 @@ class _AuthScreenState extends State<AuthScreen> {
                         ],
                       ),
                     ),
-                    BlocBuilder(
+                    BlocConsumer(
                       bloc: _authBloc,
+                      listener: (BuildContext context, AuthState state) {
+                        if (state.status == AuthStatus.success) {
+                          _authBloc.add(ClearStateEvent());
+                          _emailController.clear();
+                          context.pushNamed(AppRoutes.verification);
+                        }
+                      },
                       builder: (BuildContext context, AuthState state) {
                         return ElevatedButtonWidget(
                           isDisabled: _authBloc.isButtonDisabled,
+                          isLoading: state.status == AuthStatus.loading,
                           onPressed: () =>
                             _authBloc.add(AuthenticateByEmailEvent()),
                           buttonLabel: s.authScreenButtonLabel,

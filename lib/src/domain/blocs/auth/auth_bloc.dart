@@ -17,10 +17,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<ChangeEmailEvent>(_changeEmailEvent);
     on<ChangePrivacyPolicyStatusEvent>(_changePrivacyPolicyStatusEvent);
     on<AuthenticateByEmailEvent>(_authenticateByEmailEvent);
+    on<ClearStateEvent>(_clearStateEvent);
   }
 
-  Future<void> _changeEmailEvent(ChangeEmailEvent event, Emitter<AuthState> emit) async {
-    print('Email changed to ${event.value}');
+  Future<void> _changeEmailEvent(
+    ChangeEmailEvent event, Emitter<AuthState> emit) async {
     emit(state.copyWith(email: event.value, validationError: null));
   }
 
@@ -39,11 +40,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     emit(state.copyWith(status: AuthStatus.loading));
     try {
-      await _authByEmailUseCase(state.email);
+      await Future.delayed(const Duration(milliseconds: 2000));
+      //await _authByEmailUseCase(state.email);
       emit(state.copyWith(status: AuthStatus.success));
     } catch (e) {
       emit(state.copyWith(status: AuthStatus.error, error: e.toString()));
     }
+  }
+
+  Future<void> _clearStateEvent(
+    ClearStateEvent event, Emitter<AuthState> emit) async {
+    emit(AuthState.initial());
   }
 
   /// Getters

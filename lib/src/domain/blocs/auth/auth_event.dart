@@ -13,3 +13,5 @@ class ChangePrivacyPolicyStatusEvent extends AuthEvent {
 }
 
 class AuthenticateByEmailEvent extends AuthEvent {}
+
+class ClearStateEvent extends AuthEvent {}

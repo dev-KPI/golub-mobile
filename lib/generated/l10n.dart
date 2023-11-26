@@ -149,6 +149,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Check your Email`
+  String get verificationScreenTitle {
+    return Intl.message(
+      'Check your Email',
+      name: 'verificationScreenTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paste dynamically generated code`
+  String get verificationScreenDescription {
+    return Intl.message(
+      'Paste dynamically generated code',
+      name: 'verificationScreenDescription',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
