@@ -22,6 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "labelContacts": MessageLookupByLibrary.simpleMessage("Контакти")
+        "andLabel": MessageLookupByLibrary.simpleMessage(" та "),
+        "authScreenButtonLabel": MessageLookupByLibrary.simpleMessage("Далі"),
+        "authScreenDescription": MessageLookupByLibrary.simpleMessage(
+            "Введіть адрес вашої електроної пошти та отримайте код авторизації"),
+        "authScreenEmailPlaceholder":
+            MessageLookupByLibrary.simpleMessage("Емайл"),
+        "authScreenTitle": MessageLookupByLibrary.simpleMessage("Авторизація"),
+        "authScreenValidationEmailError":
+            MessageLookupByLibrary.simpleMessage("Введіть коректний емайл"),
+        "iAgreeLabel": MessageLookupByLibrary.simpleMessage("Я погоджуюсь з "),
+        "labelContacts": MessageLookupByLibrary.simpleMessage("Контакти"),
+        "privacyPolicyLabel":
+            MessageLookupByLibrary.simpleMessage("Політикою приватності"),
+        "termsAndConditionsLabel":
+            MessageLookupByLibrary.simpleMessage("Умовами та положеннями"),
+        "verificationScreenDescription": MessageLookupByLibrary.simpleMessage(
+            "Вставте динамічно згенерований код"),
+        "verificationScreenTitle": MessageLookupByLibrary.simpleMessage(
+            "Перевірте свою електронну пошту")
       };
 }

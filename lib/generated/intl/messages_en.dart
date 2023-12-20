@@ -22,6 +22,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "labelContacts": MessageLookupByLibrary.simpleMessage("Contacts")
+        "andLabel": MessageLookupByLibrary.simpleMessage(" and "),
+        "authScreenButtonLabel": MessageLookupByLibrary.simpleMessage("Next"),
+        "authScreenDescription": MessageLookupByLibrary.simpleMessage(
+            "Enter your email and get dynamically generated code"),
+        "authScreenEmailPlaceholder":
+            MessageLookupByLibrary.simpleMessage("Email"),
+        "authScreenTitle":
+            MessageLookupByLibrary.simpleMessage("Authentication"),
+        "authScreenValidationEmailError":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "iAgreeLabel": MessageLookupByLibrary.simpleMessage("I agree to "),
+        "labelContacts": MessageLookupByLibrary.simpleMessage("Contacts"),
+        "privacyPolicyLabel":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "termsAndConditionsLabel":
+            MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
+        "verificationScreenDescription": MessageLookupByLibrary.simpleMessage(
+            "Paste dynamically generated code"),
+        "verificationScreenTitle":
+            MessageLookupByLibrary.simpleMessage("Check your Email")
       };
 }

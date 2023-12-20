@@ -59,6 +59,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Authentication`
+  String get authScreenTitle {
+    return Intl.message(
+      'Authentication',
+      name: 'authScreenTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email and get dynamically generated code`
+  String get authScreenDescription {
+    return Intl.message(
+      'Enter your email and get dynamically generated code',
+      name: 'authScreenDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get authScreenButtonLabel {
+    return Intl.message(
+      'Next',
+      name: 'authScreenButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get authScreenEmailPlaceholder {
+    return Intl.message(
+      'Email',
+      name: 'authScreenEmailPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email`
+  String get authScreenValidationEmailError {
+    return Intl.message(
+      'Please enter a valid email',
+      name: 'authScreenValidationEmailError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I agree to `
+  String get iAgreeLabel {
+    return Intl.message(
+      'I agree to ',
+      name: 'iAgreeLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicyLabel {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicyLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms & Conditions`
+  String get termsAndConditionsLabel {
+    return Intl.message(
+      'Terms & Conditions',
+      name: 'termsAndConditionsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` and `
+  String get andLabel {
+    return Intl.message(
+      ' and ',
+      name: 'andLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your Email`
+  String get verificationScreenTitle {
+    return Intl.message(
+      'Check your Email',
+      name: 'verificationScreenTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paste dynamically generated code`
+  String get verificationScreenDescription {
+    return Intl.message(
+      'Paste dynamically generated code',
+      name: 'verificationScreenDescription',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

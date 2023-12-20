@@ -23,6 +23,7 @@ class AppTextStyles {
   static final TextStyle titleLarge = _ubuntu.copyWith(
     fontSize: 28.0,
     fontWeight: FontWeight.w500,
+    height: 1.25,
   );
   static final TextStyle displaySmall = _ubuntu.copyWith(
     fontSize: 11.0,
@@ -31,6 +32,7 @@ class AppTextStyles {
   static final TextStyle displayMedium = _roboto.copyWith(
     fontSize: 12.0,
     fontWeight: FontWeight.w400,
+    height: 1.25,
   );
   static final TextStyle bodyMedium = _roboto.copyWith(
     fontSize: 17.0,
@@ -39,6 +41,7 @@ class AppTextStyles {
   static final TextStyle bodySmall = _roboto.copyWith(
     fontSize: 15.0,
     fontWeight: FontWeight.w400,
+    height: 1.33,
   );
 }
 
@@ -49,5 +52,23 @@ class AppStyles {
       AppColors.mixBlueGray1,
     ],
     radius: 1.5,
+  );
+
+  static const LinearGradient bluePurpleGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      AppColors.gradientIndigo,
+      AppColors.gradientBlue,
+    ],
+  );
+
+  static const LinearGradient blueWhiteGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      AppColors.gradientWhite,
+      AppColors.baseWhite,
+    ],
   );
 }
