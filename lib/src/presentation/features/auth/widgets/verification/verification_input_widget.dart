@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 
 class VerificationInputWidget extends StatelessWidget {
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
 
-  const VerificationInputWidget({
-    super.key
-  });
+  const VerificationInputWidget({this.controller, this.focusNode, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,8 @@ class VerificationInputWidget extends StatelessWidget {
         minHeight: 76.0,
       ),
       child: TextField(
+        controller: controller,
+        focusNode: focusNode,
         keyboardType: TextInputType.number,
         inputFormatters: [
           LengthLimitingTextInputFormatter(1),
@@ -25,8 +27,7 @@ class VerificationInputWidget extends StatelessWidget {
         style: Theme.of(context).textTheme.titleLarge,
         decoration: InputDecoration(
           fillColor: Colors.transparent,
-          contentPadding: const EdgeInsets.symmetric(
-            vertical: 24.0, horizontal: 12.0),
+          contentPadding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: AppColors.brightBlue,

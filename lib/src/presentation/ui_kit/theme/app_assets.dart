@@ -8,6 +8,8 @@ class AppAssets {
   static const String contactIcon = '$_icons/contacts.svg';
   static const String chatIcon = '$_icons/chat.svg';
   static const String profileIcon = '$_icons/profile.svg';
+  static const String userProfileIcon = '$_icons/user_profile.svg';
+  static const String cameraIcon = '$_icons/camera.svg';
 
   static const String arrowBackIcon = '$_icons/arrow_back.svg';
 

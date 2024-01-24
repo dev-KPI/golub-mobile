@@ -25,9 +25,18 @@ final lightTheme = ThemeData(
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
-    hintStyle: AppTextStyles.bodyMedium,
+    labelStyle: AppTextStyles.bodyMedium.copyWith(
+      color: AppColors.baseGray5,
+    ),
+    floatingLabelStyle: AppTextStyles.bodySmall.copyWith(
+      color: AppColors.baseGray5,
+    ),
+    floatingLabelAlignment: FloatingLabelAlignment.start,
+    helperStyle: AppTextStyles.displaySmall.copyWith(
+      color: AppColors.brightRed,
+    ),
     fillColor: AppColors.baseWhite,
-    contentPadding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+    contentPadding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 16.0),
     filled: true,
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: AppColors.baseWhite),

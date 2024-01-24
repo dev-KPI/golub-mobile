@@ -4,6 +4,7 @@ import 'package:golub/src/presentation/features/auth/screens/auth_screen.dart';
 import 'package:golub/src/presentation/features/auth/screens/verification_screen.dart';
 import 'package:golub/src/presentation/features/chats/screens/chats_screen.dart';
 import 'package:golub/src/presentation/features/contacts/screens/contacts_screen.dart';
+import 'package:golub/src/presentation/features/onboarding/onboarding_profile_screen.dart';
 import 'package:golub/src/presentation/features/profile/screens/profile_screen.dart';
 import 'package:golub/src/presentation/features/splash/screens/splash_screen.dart';
 import 'package:golub/src/presentation/navigation/app_navigation_shell.dart';
@@ -39,6 +40,13 @@ final routerConfig = GoRouter(
       path: AppRoutes.getPath(AppRoutes.verification),
       builder: (BuildContext context, GoRouterState state) {
         return const VerificationScreen();
+      },
+    ),
+    GoRoute(
+      name: AppRoutes.onboardingProfile,
+      path: AppRoutes.getPath(AppRoutes.onboardingProfile),
+      builder: (BuildContext context, GoRouterState state) {
+        return const OnboardingProfileScreen();
       },
     ),
     StatefulShellRoute.indexedStack(

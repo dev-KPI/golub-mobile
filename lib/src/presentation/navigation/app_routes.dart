@@ -7,6 +7,7 @@ class AppRoutes {
   static const String chats = 'chats';
   static const String profile = 'profile';
   static const String verification = 'verification';
+  static const String onboardingProfile = 'onboardingProfile';
 
   static String getPath(String routeName) => '/$routeName';
 }

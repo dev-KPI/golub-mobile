@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:golub/generated/l10n.dart';
+import 'package:golub/i18n/strings.g.dart';
 import 'package:golub/src/core/di/injectable.dart';
 import 'package:golub/src/domain/blocs/auth/auth_bloc.dart';
 import 'package:golub/src/presentation/navigation/app_router.dart';
@@ -22,18 +22,19 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   final AuthBloc _authBloc = getIt<AuthBloc>();
 
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController(
+      //text: 'test@gmail.com',
+      );
   final FocusNode _emailFocusNode = FocusNode();
 
-  final TapGestureRecognizer _termsConditionsTapRecognizer =
-    TapGestureRecognizer();
-  final TapGestureRecognizer _privacyPolicyTapRecognizer =
-    TapGestureRecognizer();
+  final TapGestureRecognizer _termsConditionsTapRecognizer = TapGestureRecognizer();
+  final TapGestureRecognizer _privacyPolicyTapRecognizer = TapGestureRecognizer();
 
   @override
   void initState() {
     super.initState();
     _emailController.addListener(_handleEmailString);
+    _authBloc.add(ChangeEmailEvent(_emailController.text));
   }
 
   void _handleEmailString() {
@@ -51,7 +52,6 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     final size = MediaQuery.of(context).size;
 
     return BlocProvider(
@@ -64,8 +64,7 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
           child: SafeArea(
             child: Padding(
-              padding:
-                  const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+              padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,27 +74,26 @@ class _AuthScreenState extends State<AuthScreen> {
                         top: size.height / 6,
                       ),
                       child: Text(
-                        s.authScreenTitle,
+                        t.screens.auth.title,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
                     const SizedBox(height: 32.0),
                     Text(
-                      s.authScreenDescription,
+                      t.screens.auth.description,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 16.0),
                     BlocBuilder(
-                      bloc: _authBloc,
-                      builder: (BuildContext context, AuthState state) {
-                        return TextFieldWidget(
-                          textEditingController: _emailController,
-                          focusNode: _emailFocusNode,
-                          hintText: s.authScreenEmailPlaceholder,
-                          error: state.validationError,
-                        );
-                      }
-                    ),
+                        bloc: _authBloc,
+                        builder: (BuildContext context, AuthState state) {
+                          return TextFieldWidget(
+                            textEditingController: _emailController,
+                            focusNode: _emailFocusNode,
+                            hintText: t.screens.auth.emailPlaceholder,
+                            error: state.validationError,
+                          );
+                        }),
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 60.0,
@@ -111,10 +109,9 @@ class _AuthScreenState extends State<AuthScreen> {
                               bloc: _authBloc,
                               builder: (BuildContext context, AuthState state) {
                                 return Checkbox(
-                                  materialTapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
+                                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4.0)),
+                                      borderRadius: BorderRadius.circular(4.0)),
                                   side: const BorderSide(
                                     color: Colors.black,
                                     width: 1.0,
@@ -123,8 +120,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   activeColor: AppColors.brightLightPurple,
                                   value: state.privacyPolicyAccepted,
                                   onChanged: (bool? value) => _authBloc.add(
-                                    ChangePrivacyPolicyStatusEvent(
-                                      value ?? false),
+                                    ChangePrivacyPolicyStatusEvent(value ?? false),
                                   ),
                                 );
                               },
@@ -135,29 +131,29 @@ class _AuthScreenState extends State<AuthScreen> {
                             child: RichText(
                               maxLines: 2,
                               text: TextSpan(
-                                text: s.iAgreeLabel,
+                                text: t.screens.auth.statementIAgree,
                                 style: Theme.of(context).textTheme.bodySmall,
                                 children: <TextSpan>[
                                   TextSpan(
                                     recognizer: _termsConditionsTapRecognizer
-                                      ..onTap = () =>
-                                        launchLink('https://google.com'),
-                                    text: s.termsAndConditionsLabel,
+                                      ..onTap = () => launchLink('https://google.com'),
+                                    text: t.screens.auth.statementTermsAndConditions,
                                     style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
+                                        .textTheme
+                                        .bodySmall
                                         ?.copyWith(color: AppColors.brightBlue),
                                   ),
-                                  TextSpan(text: s.andLabel),
+                                  TextSpan(
+                                    text: t.screens.auth.statementAnd,
+                                  ),
                                   TextSpan(
                                     recognizer: _privacyPolicyTapRecognizer
-                                      ..onTap = () =>
-                                        launchLink('https://google.com'),
-                                    text: s.privacyPolicyLabel,
+                                      ..onTap = () => launchLink('https://google.com'),
+                                    text: t.screens.auth.statementPrivacyPolicy,
                                     style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
-                                      ?.copyWith(color: AppColors.brightBlue),
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(color: AppColors.brightBlue),
                                   ),
                                 ],
                               ),
@@ -179,9 +175,8 @@ class _AuthScreenState extends State<AuthScreen> {
                         return ElevatedButtonWidget(
                           isDisabled: _authBloc.isButtonDisabled,
                           isLoading: state.status == AuthStatus.loading,
-                          onPressed: () =>
-                            _authBloc.add(AuthenticateByEmailEvent()),
-                          buttonLabel: s.authScreenButtonLabel,
+                          onPressed: () => _authBloc.add(AuthenticateByEmailEvent()),
+                          buttonLabel: t.screens.auth.buttonLabel,
                         );
                       },
                     ),

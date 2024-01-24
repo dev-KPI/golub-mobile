@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  final String? hintText;
+  final String hintText;
   final String? error;
   final TextEditingController? textEditingController;
   final FocusNode? focusNode;
   final VoidCallback? onEditingComplete;
+  final Color? fillColor;
 
   const TextFieldWidget({
     this.textEditingController,
     this.focusNode,
     this.onEditingComplete,
-    this.hintText,
+    this.hintText = '',
     this.error,
+    this.fillColor,
     super.key
   });
 
@@ -22,8 +24,14 @@ class TextFieldWidget extends StatelessWidget {
     return Container(
       constraints: const BoxConstraints(
         minWidth: double.infinity,
-        minHeight: 52.0,
+        minHeight: 64.0,
       ),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+        color: fillColor ?? AppColors.baseWhite,
+        //color: Colors.yellow,
+      ),
+      alignment: Alignment.center,
       child: TextField(
         controller: textEditingController,
         focusNode: focusNode,
@@ -33,11 +41,9 @@ class TextFieldWidget extends StatelessWidget {
             AppColors.baseBlack : AppColors.baseWhite,
           ),
         decoration: InputDecoration(
-          hintText: hintText,
+          labelText: hintText,
           helperText: error,
-          helperStyle: Theme.of(context).textTheme.displaySmall?.copyWith(
-            color: AppColors.brightRed,
-          ),
+          fillColor: fillColor,
         ),
       ),
     );
