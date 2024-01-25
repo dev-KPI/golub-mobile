@@ -10,7 +10,7 @@
   },
   "errors": {
     "validation": {
-      "invalidEmail": "Please enter a valid email."
+      "invalidEmail": "Please enter a valid email"
     }
   },
   "screens": {
