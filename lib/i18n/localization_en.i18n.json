@@ -1,18 +1,22 @@
 {
   "@@locale": "en",
   "common": {
+    "buttons": {
+      "next": "Next"
+    },
+    "placeholders": {
+      "email": "Email"
+    }
   },
   "errors": {
     "validation": {
-      "email": "Please enter a valid email."
+      "invalidEmail": "Please enter a valid email."
     }
   },
   "screens": {
     "auth": {
       "title": "Authentication",
       "description": "Please enter your credentials to login.",
-      "buttonLabel": "Next",
-      "emailPlaceholder": "Email",
       "statementIAgree": "I agree to ",
       "statementPrivacyPolicy": "Privacy Policy",
       "statementTermsAndConditions": "Terms & Conditions",
@@ -21,7 +25,6 @@
     "verification": {
       "title": "Check your Email",
       "description": "Paste dynamically generated code",
-      "buttonLabel": "Next",
       "noCodeQuestion": "Didn't get anything?",
       "noCodeButtonLabel": "Resend code"
     },

@@ -1,18 +1,22 @@
 {
   "@@locale": "uk",
   "common": {
+    "buttons": {
+      "next": "Далі"
+    },
+    "placeholders": {
+      "email": "Емейл"
+    }
   },
   "errors": {
     "validation": {
-      "email": "Введіть коректний email"
+      "invalidEmail": "Введіть коректний email"
     }
   },
   "screens": {
     "auth": {
       "title": "Авторизація",
       "description": "Введіть email для авторизації",
-      "buttonLabel": "Далі",
-      "emailPlaceholder": "Введіть email",
       "statementIAgree": "Я погоджуюсь з ",
       "statementPrivacyPolicy": "Політикою конфіденційності",
       "statementTermsAndConditions": "Умовами використання",
@@ -21,7 +25,6 @@
     "verification": {
       "title": "Перевірте електронну пошту",
       "description": "Ми надіслали вам код підтвердження на електронну пошту",
-      "buttonLabel": "Далі",
       "noCodeQuestion": "Не отримали код?",
       "noCodeButtonLabel": "Відправити ще раз"
     },

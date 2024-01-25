@@ -32,7 +32,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> _authenticateByEmailEvent(
       AuthenticateByEmailEvent event, Emitter<AuthState> emit) async {
     if (!state.email.isValidEmail) {
-      emit(state.copyWith(validationError: t.errors.validation.email));
+      emit(state.copyWith(validationError: t.errors.validation.invalidEmail));
       return;
     }
 

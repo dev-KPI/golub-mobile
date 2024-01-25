@@ -90,7 +90,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           return TextFieldWidget(
                             textEditingController: _emailController,
                             focusNode: _emailFocusNode,
-                            hintText: t.screens.auth.emailPlaceholder,
+                            hintText: t.common.placeholders.email,
                             error: state.validationError,
                           );
                         }),
@@ -176,7 +176,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           isDisabled: _authBloc.isButtonDisabled,
                           isLoading: state.status == AuthStatus.loading,
                           onPressed: () => _authBloc.add(AuthenticateByEmailEvent()),
-                          buttonLabel: t.screens.auth.buttonLabel,
+                          buttonLabel: t.common.buttons.next,
                         );
                       },
                     ),
