@@ -11,7 +11,8 @@ workflows:
       events:
         - tag
       tag_patterns:
-        - '*'
+        - pattern: '*'
+          include: true
     scripts:
       - name: Get Flutter dependencies
         script: flutter packages pub get
