@@ -6,7 +6,7 @@ workflows:
     environment:
       flutter: stable
       android_signing:
-        - keystore_reference: golub_keystore
+        - golub_keystore
     triggering:
       events:
         - tag
