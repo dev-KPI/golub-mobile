@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 
-class VerificationInputWidget extends StatelessWidget {
+class VerificationInput extends StatelessWidget {
   final TextEditingController? controller;
   final FocusNode? focusNode;
 
-  const VerificationInputWidget({this.controller, this.focusNode, super.key});
+  const VerificationInput({this.controller, this.focusNode, super.key});
 
   @override
   Widget build(BuildContext context) {

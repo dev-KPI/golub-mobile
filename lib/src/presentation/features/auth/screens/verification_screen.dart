@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:golub/src/presentation/features/auth/widgets/verification/verification_input_widget.dart';
+import 'package:golub/i18n/strings.g.dart';
+import 'package:golub/src/presentation/features/auth/widgets/verification/verification_input..dart';
 import 'package:golub/src/presentation/navigation/app_router.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
@@ -12,6 +13,8 @@ class VerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
+
     return Scaffold(
       body: Container(
         constraints: const BoxConstraints.expand(),
@@ -21,7 +24,11 @@ class VerificationScreen extends StatelessWidget {
         child: SafeArea(
           bottom: false,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.only(
+              left: 16.0,
+              right: 16.0,
+              top: 20.0,
+            ),
             child: Column(children: [
               Align(
                 alignment: Alignment.topLeft,
@@ -44,12 +51,12 @@ class VerificationScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32.0),
               Text(
-                '', //s.verificationScreenTitle,
+                t.screens.verification.title,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 12.0),
               Text(
-                '', //s.verificationScreenDescription,
+                t.screens.verification.description,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               Container(
@@ -59,27 +66,27 @@ class VerificationScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       flex: 1,
-                      child: VerificationInputWidget(),
+                      child: VerificationInput(),
                     ),
                     SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInputWidget(),
+                      child: VerificationInput(),
                     ),
                     SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInputWidget(),
+                      child: VerificationInput(),
                     ),
                     SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInputWidget(),
+                      child: VerificationInput(),
                     ),
                     SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInputWidget(),
+                      child: VerificationInput(),
                     )
                   ],
                 ),
@@ -88,7 +95,7 @@ class VerificationScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '', //s.verificationScreenNoCodeQuestion,
+                    t.screens.verification.noCodeQuestion,
                   ),
                   const SizedBox(width: 4.0),
                   GestureDetector(
@@ -97,20 +104,21 @@ class VerificationScreen extends StatelessWidget {
                       print('resend code');
                     },
                     child: Text(
-                      '', //s.verificationScreenNoCodeButtonLabel,
+                      t.screens.verification.noCodeButtonLabel,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.brightOrange,
-                          ),
+                        color: AppColors.brightOrange,
+                      ),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 36.0),
               ElevatedButtonWidget(
-                  buttonLabel: '', //s.verificationScreenButtonLabel,
-                  onPressed: () {
-                    context.goNamed(AppRoutes.onboardingProfile);
-                  }),
+                buttonLabel: t.common.buttons.next,
+                onPressed: () {
+                  context.goNamed(AppRoutes.onboardingProfile);
+                }
+              ),
             ]),
           ),
         ),

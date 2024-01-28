@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/widgets/input/profile_upload_image.dart';
-import 'package:golub/src/presentation/ui_kit/widgets/input/text_field_widget.dart';
+import 'package:golub/src/presentation/ui_kit/widgets/input/gtext_field.dart';
 
 class OnboardingProfileScreen extends StatelessWidget {
   const OnboardingProfileScreen({super.key});
@@ -36,7 +36,7 @@ class OnboardingProfileScreen extends StatelessWidget {
             children: [
               ProfileUploadImage(),
               SizedBox(height: 32.0),
-              TextFieldWidget(
+              GTextField(
                 hintText: 'Profile Name',
                 fillColor: AppColors.baseGray2,
               ),

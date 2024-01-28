@@ -9,7 +9,7 @@ import 'package:golub/src/presentation/navigation/app_router.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
 import 'package:golub/src/presentation/ui_kit/ui.dart';
-import 'package:golub/src/presentation/ui_kit/widgets/input/text_field_widget.dart';
+import 'package:golub/src/presentation/ui_kit/widgets/input/gtext_field.dart';
 import 'package:golub/src/presentation/utils/link_launcher.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -23,8 +23,8 @@ class _AuthScreenState extends State<AuthScreen> {
   final AuthBloc _authBloc = getIt<AuthBloc>();
 
   final TextEditingController _emailController = TextEditingController(
-      //text: 'test@gmail.com',
-      );
+    text: 'test@gmail.com',
+  );
   final FocusNode _emailFocusNode = FocusNode();
 
   final TapGestureRecognizer _termsConditionsTapRecognizer = TapGestureRecognizer();
@@ -35,6 +35,7 @@ class _AuthScreenState extends State<AuthScreen> {
     super.initState();
     _emailController.addListener(_handleEmailString);
     _authBloc.add(ChangeEmailEvent(_emailController.text));
+    _authBloc.add(ChangePrivacyPolicyStatusEvent(true));
   }
 
   void _handleEmailString() {
@@ -87,7 +88,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     BlocBuilder(
                         bloc: _authBloc,
                         builder: (BuildContext context, AuthState state) {
-                          return TextFieldWidget(
+                          return GTextField(
                             textEditingController: _emailController,
                             focusNode: _emailFocusNode,
                             hintText: t.common.placeholders.email,
