@@ -18,7 +18,15 @@ dependencies:
   flutter_svg: 2.0.9
   intl: 0.18.1
   freezed: 2.4.5
-
+  freezed_annotation: 2.4.1
+  flutter_bloc: 8.1.3
+  url_launcher: 6.2.1
+  dio: 5.3.4
+  flutter_dotenv: 5.1.0
+  injectable: 2.3.2
+  get_it: 7.6.4
+  slang: 3.28.0
+  slang_flutter: 3.28.0
 
 dev_dependencies:
   flutter_test:
@@ -26,9 +34,8 @@ dev_dependencies:
   flutter_lints: 2.0.0
   intl_utils: 2.8.5
   build_runner: 2.4.6
-
-flutter_intl:
-  enabled: true
+  injectable_generator: 2.4.1
+  slang_build_runner: 3.28.0
 
 flutter:
   uses-material-design: true
@@ -36,6 +43,7 @@ flutter:
   assets:
    - assets/icons/
    - assets/logo/
+   - assets/images/
 
   fonts:
    - family: Ubuntu

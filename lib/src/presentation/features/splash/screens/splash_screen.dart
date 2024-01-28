@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:golub/src/presentation/navigation/app_routes.dart';
+import 'package:golub/src/presentation/navigation/app_router.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_assets.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
 
@@ -18,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _initialization().then((_) {
-      context.goNamed(AppRoutes.chats);
+      context.goNamed(AppRoutes.auth);
     });
   }
 

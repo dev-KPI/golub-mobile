@@ -1,0 +1,35 @@
+{
+  "@@locale": "en",
+  "common": {
+    "buttons": {
+      "next": "Next"
+    },
+    "placeholders": {
+      "email": "Email"
+    }
+  },
+  "errors": {
+    "validation": {
+      "invalidEmail": "Please enter a valid email"
+    }
+  },
+  "screens": {
+    "auth": {
+      "title": "Authentication",
+      "description": "Please enter your credentials to login.",
+      "statementIAgree": "I agree to ",
+      "statementPrivacyPolicy": "Privacy Policy",
+      "statementTermsAndConditions": "Terms & Conditions",
+      "statementAnd": " and "
+    },
+    "verification": {
+      "title": "Check your Email",
+      "description": "Paste dynamically generated code",
+      "noCodeQuestion": "Didn't get anything?",
+      "noCodeButtonLabel": "Resend code"
+    },
+    "onboardingProfile": {
+      "title": "Profile"
+    }
+  }
+}

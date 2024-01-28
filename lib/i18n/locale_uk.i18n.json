@@ -1,0 +1,35 @@
+{
+  "@@locale": "uk",
+  "common": {
+    "buttons": {
+      "next": "Далі"
+    },
+    "placeholders": {
+      "email": "Емейл"
+    }
+  },
+  "errors": {
+    "validation": {
+      "invalidEmail": "Введіть коректний email"
+    }
+  },
+  "screens": {
+    "auth": {
+      "title": "Авторизація",
+      "description": "Введіть email для авторизації",
+      "statementIAgree": "Я погоджуюсь з ",
+      "statementPrivacyPolicy": "Політикою конфіденційності",
+      "statementTermsAndConditions": "Умовами використання",
+      "statementAnd": " та "
+    },
+    "verification": {
+      "title": "Перевірте електронну пошту",
+      "description": "Ми надіслали вам код підтвердження на електронну пошту",
+      "noCodeQuestion": "Не отримали код?",
+      "noCodeButtonLabel": "Відправити ще раз"
+    },
+    "onboardingProfile": {
+      "title": "Профіль"
+    }
+  }
+}
