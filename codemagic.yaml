@@ -27,7 +27,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - $DEVELOPER_EMAIL
+          - "denisdubov88@gmail.com"
         notify:
           success: true
 
