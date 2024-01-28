@@ -16,14 +16,6 @@ workflows:
     scripts:
       - name: Get Flutter dependencies
         script: flutter packages pub get
-      - name: Set up key properties
-        script:
-          cat >> $CM_BUILD_DIR/android/key.properties <<EOF
-          storePassword=$CM_KEYSTORE_PASSWORD
-          keyPassword=$CM_KEYSTORE_PASSWORD
-          keyAlias=$CM_KEY_ALIAS
-          storeFile=$CM_KEYSTORE_PATH
-          EOF
       - name: Build APK
         script: flutter build apk --release
     artifacts:
