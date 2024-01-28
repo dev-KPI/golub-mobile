@@ -1,0 +1,33 @@
+workflows:
+  android-dev:
+    name: Android Development
+    instance_type: mac_mini_m1
+    max_build_duration: 90
+    environment:
+      flutter: stable
+      android_signing:
+        - keystore_reference: Golub
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - '*'
+    scripts:
+      - name: Get Flutter dependencies
+        script: flutter packages pub get
+      - name: Run tests
+        script: flutter test
+      - name: Flutter analyze
+        script: flutter analyze
+      - name: Build APK
+        script: flutter build apk --release
+    artifacts:
+      - build/**/outputs/apk/**/*.apk
+    publishing:
+        email:
+            recipients:
+            - $DEVELOPER_EMAIL
+            subject: "Golub Android Build"
+            body: "Build has been completed successfully"
+            attachments:
+            - build/**/outputs/apk/**/*.apk
