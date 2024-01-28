@@ -9,15 +9,11 @@ workflows:
         - golub_keystore
     triggering:
       events:
-        - tag
         - push
       branch_patterns:
         - pattern: '{feature}/*'
           include: true
-          source: true
-      tag_patterns:
-        - pattern: '*'
-          include: true
+          source: false
     scripts:
       - name: Get Flutter dependencies
         script: flutter packages pub get
