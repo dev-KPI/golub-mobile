@@ -25,10 +25,9 @@ workflows:
     artifacts:
       - build/**/outputs/apk/**/*.apk
     publishing:
-        email:
-            recipients:
-            - $DEVELOPER_EMAIL
-            subject: "Golub Android Build"
-            body: "Build has been completed successfully"
-            attachments:
-            - build/**/outputs/apk/**/*.apk
+      email:
+        recipients:
+          - $DEVELOPER_EMAIL
+        notify:
+          success: true
+
