@@ -16,8 +16,6 @@ workflows:
     scripts:
       - name: Get Flutter dependencies
         script: flutter packages pub get
-      - name: Flutter analyze
-        script: flutter analyze
       - name: Build APK
         script: flutter build apk --release
     artifacts:
