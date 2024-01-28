@@ -9,40 +9,41 @@ class OnboardingProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(
-            '', //s.onboardingProfileScreenTitle,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: AppColors.baseBlack,
-                ),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(
+          '', //s.onboardingProfileScreenTitle,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color: AppColors.baseBlack,
           ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
         ),
-        body: SafeArea(
-          bottom: false,
-          child: Container(
-            padding: const EdgeInsets.only(
-              left: 16.0,
-              right: 16.0,
-              top: 16.0,
-            ),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                ProfileUploadImage(),
-                const SizedBox(height: 32.0),
-                TextFieldWidget(
-                  hintText: 'Profile Name',
-                  fillColor: AppColors.baseGray2,
-                ),
-              ],
-            ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
+      body: SafeArea(
+        bottom: false,
+        child: Container(
+          padding: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 16.0,
           ),
-        ));
+          width: double.infinity,
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              ProfileUploadImage(),
+              SizedBox(height: 32.0),
+              TextFieldWidget(
+                hintText: 'Profile Name',
+                fillColor: AppColors.baseGray2,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
