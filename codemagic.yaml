@@ -19,8 +19,13 @@ workflows:
         script: flutter packages pub get
       - name: Build APK
         script: flutter build apk --release
+      - name: Build App Bundle
+        script: flutter build appbundle --release
     artifacts:
       - build/**/outputs/apk/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - flutter_drive.log
     publishing:
       email:
         recipients:

@@ -30,6 +30,7 @@ final lightTheme = ThemeData(
     ),
     floatingLabelStyle: AppTextStyles.bodySmall.copyWith(
       color: AppColors.baseGray5,
+      fontSize: 14.0,
     ),
     floatingLabelAlignment: FloatingLabelAlignment.start,
     helperStyle: AppTextStyles.displaySmall.copyWith(
