@@ -27,7 +27,7 @@ class GTextField extends StatelessWidget {
         Container(
           constraints: const BoxConstraints(
             minWidth: double.infinity,
-            minHeight: 64.0,
+            minHeight: 68.0,
           ),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(16.0)),
@@ -43,6 +43,7 @@ class GTextField extends StatelessWidget {
                 AppColors.baseBlack : AppColors.baseWhite,
               ),
             decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
               labelText: hintText,
               fillColor: fillColor,
               filled: true,

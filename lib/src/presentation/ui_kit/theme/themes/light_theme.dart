@@ -28,16 +28,14 @@ final lightTheme = ThemeData(
     labelStyle: AppTextStyles.bodyMedium.copyWith(
       color: AppColors.baseGray5,
     ),
-    floatingLabelStyle: AppTextStyles.bodySmall.copyWith(
+    floatingLabelStyle: AppTextStyles.bodyMedium.copyWith(
       color: AppColors.baseGray5,
-      fontSize: 14.0,
     ),
     floatingLabelAlignment: FloatingLabelAlignment.start,
     helperStyle: AppTextStyles.displaySmall.copyWith(
       color: AppColors.brightRed,
     ),
     fillColor: AppColors.baseWhite,
-    contentPadding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 16.0),
     filled: true,
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: AppColors.baseWhite),

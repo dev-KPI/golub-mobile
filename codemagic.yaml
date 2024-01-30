@@ -4,6 +4,8 @@ workflows:
     instance_type: mac_mini_m1
     max_build_duration: 90
     environment:
+      groups:
+        - google_credentials
       flutter: stable
       android_signing:
         - golub_keystore
@@ -18,15 +20,18 @@ workflows:
       - name: Get Flutter dependencies
         script: flutter packages pub get
       - name: Build APK
-        script: flutter build apk --release
+        script: flutter build apk --release --build-name=1.0.0 --build-number=2
       - name: Build App Bundle
-        script: flutter build appbundle --release
+        script: flutter build appbundle --release --build-name=1.0.0 --build-number=2
     artifacts:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
     publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
       email:
         recipients:
           - "denisdubov88@gmail.com"
