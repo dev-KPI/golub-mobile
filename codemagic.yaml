@@ -19,12 +19,12 @@ workflows:
     scripts:
       - name: Get Flutter dependencies
         script: flutter packages pub get
-      - name: Build APK
-        script: flutter build apk --release --build-name=1.0.0 --build-number=2
+     # - name: Build APK
+     #   script: flutter build apk --release --build-name=1.0.0 --build-number=2
       - name: Build App Bundle
         script: flutter build appbundle --release --build-name=1.0.0 --build-number=2
     artifacts:
-      - build/**/outputs/apk/**/*.apk
+      #- build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
@@ -32,6 +32,7 @@ workflows:
       google_play:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: internal
+        changes_not_sent_for_review: true
       email:
         recipients:
           - "denisdubov88@gmail.com"
