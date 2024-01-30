@@ -32,7 +32,6 @@ workflows:
       google_play:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: internal
-        changes_not_sent_for_review: true
       email:
         recipients:
           - "denisdubov88@gmail.com"
