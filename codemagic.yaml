@@ -22,7 +22,7 @@ workflows:
      # - name: Build APK
      #   script: flutter build apk --release --build-name=1.0.0 --build-number=2
       - name: Build App Bundle
-        script: flutter build appbundle --release --build-name=1.0.0 --build-number=2
+        script: flutter build appbundle --release --build-name=1.0.0 --build-number=$(($(google-play get-latest-build-number --package-name 'com.golub.golub') + 1))
     artifacts:
       #- build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/*.aab
