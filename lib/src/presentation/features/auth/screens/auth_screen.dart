@@ -10,6 +10,7 @@ import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
 import 'package:golub/src/presentation/ui_kit/ui.dart';
 import 'package:golub/src/presentation/ui_kit/widgets/input/gtext_field.dart';
+import 'package:golub/src/presentation/utils/link_contants.dart';
 import 'package:golub/src/presentation/utils/link_launcher.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -137,7 +138,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 children: <TextSpan>[
                                   TextSpan(
                                     recognizer: _termsConditionsTapRecognizer
-                                      ..onTap = () => launchLink('https://google.com'),
+                                      ..onTap = () => launchLink(LinkConstants.termAndCondition),
                                     text: t.screens.auth.statementTermsAndConditions,
                                     style: Theme.of(context)
                                         .textTheme
@@ -149,7 +150,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                   TextSpan(
                                     recognizer: _privacyPolicyTapRecognizer
-                                      ..onTap = () => launchLink('https://google.com'),
+                                      ..onTap = () => launchLink(LinkConstants.privacy),
                                     text: t.screens.auth.statementPrivacyPolicy,
                                     style: Theme.of(context)
                                         .textTheme
@@ -167,8 +168,6 @@ class _AuthScreenState extends State<AuthScreen> {
                       bloc: _authBloc,
                       listener: (BuildContext context, AuthState state) {
                         if (state.status == AuthStatus.success) {
-                          _authBloc.add(ClearStateEvent());
-                          _emailController.clear();
                           context.pushNamed(AppRoutes.verification);
                         }
                       },

@@ -5,8 +5,18 @@ import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 class VerificationInput extends StatelessWidget {
   final TextEditingController? controller;
   final FocusNode? focusNode;
+  final FocusNode? nextFocusNode;
+  final TextInputAction textInputAction;
+  final VoidCallback? onEditingComplete;
 
-  const VerificationInput({this.controller, this.focusNode, super.key});
+  const VerificationInput({
+    this.controller,
+    this.focusNode,
+    this.nextFocusNode,
+    this.textInputAction = TextInputAction.done,
+    this.onEditingComplete,
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +29,7 @@ class VerificationInput extends StatelessWidget {
         controller: controller,
         focusNode: focusNode,
         keyboardType: TextInputType.number,
+        textInputAction: textInputAction,
         inputFormatters: [
           LengthLimitingTextInputFormatter(1),
           FilteringTextInputFormatter.digitsOnly,
@@ -44,6 +55,13 @@ class VerificationInput extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.0),
           ),
         ),
+        onEditingComplete: () {
+          focusNode?.unfocus();
+          nextFocusNode?.requestFocus();
+          if (onEditingComplete != null) {
+            onEditingComplete!();
+          }
+        },
       ),
     );
   }

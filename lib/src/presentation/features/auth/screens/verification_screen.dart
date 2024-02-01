@@ -2,14 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golub/i18n/strings.g.dart';
-import 'package:golub/src/presentation/features/auth/widgets/verification/verification_input..dart';
+import 'package:golub/src/presentation/features/auth/widgets/verification/verification_input.dart';
 import 'package:golub/src/presentation/navigation/app_router.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
 import 'package:golub/src/presentation/ui_kit/ui.dart';
 
-class VerificationScreen extends StatelessWidget {
+class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
+
+  @override
+  State<VerificationScreen> createState() => _VerificationScreenState();
+}
+
+class _VerificationScreenState extends State<VerificationScreen> {
+  final TextEditingController _verificationDigitFirst = TextEditingController();
+  final TextEditingController _verificationDigitSecond = TextEditingController();
+  final TextEditingController _verificationDigitThird = TextEditingController();
+  final TextEditingController _verificationDigitFourth = TextEditingController();
+  final TextEditingController _verificationDigitFifth = TextEditingController();
+
+  final FocusNode _fnFirst = FocusNode();
+  final FocusNode _fnSecond = FocusNode();
+  final FocusNode _fnThird = FocusNode();
+  final FocusNode _fnFourth = FocusNode();
+  final FocusNode _fnFifth = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -61,33 +78,56 @@ class VerificationScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 40.0, bottom: 28.0),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       flex: 1,
-                      child: VerificationInput(),
+                      child: VerificationInput(
+                        textInputAction: TextInputAction.next,
+                        controller: _verificationDigitFirst,
+                        focusNode: _fnFirst,
+                        nextFocusNode: _fnSecond,
+                      ),
                     ),
-                    SizedBox(width: 8.0),
+                    const SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInput(),
+                      child: VerificationInput(
+                        textInputAction: TextInputAction.next,
+                        controller: _verificationDigitSecond,
+                        focusNode: _fnSecond,
+                        nextFocusNode: _fnThird,
+                      ),
                     ),
-                    SizedBox(width: 8.0),
+                    const SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInput(),
+                      child: VerificationInput(
+                        textInputAction: TextInputAction.next,
+                        controller: _verificationDigitThird,
+                        focusNode: _fnThird,
+                        nextFocusNode: _fnFourth,
+                      ),
                     ),
-                    SizedBox(width: 8.0),
+                    const SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInput(),
+                      child: VerificationInput(
+                        textInputAction: TextInputAction.next,
+                        controller: _verificationDigitFourth,
+                        focusNode: _fnFourth,
+                        nextFocusNode: _fnFifth,
+                      ),
                     ),
-                    SizedBox(width: 8.0),
+                    const SizedBox(width: 8.0),
                     Expanded(
                       flex: 1,
-                      child: VerificationInput(),
-                    )
+                      child: VerificationInput(
+                        controller: _verificationDigitFifth,
+                        focusNode: _fnFifth,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -106,19 +146,18 @@ class VerificationScreen extends StatelessWidget {
                     child: Text(
                       t.screens.verification.noCodeButtonLabel,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.brightOrange,
-                      ),
+                            color: AppColors.brightOrange,
+                          ),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 36.0),
               ElevatedButtonWidget(
-                buttonLabel: t.common.buttons.next,
-                onPressed: () {
-                  context.goNamed(AppRoutes.onboardingProfile);
-                }
-              ),
+                  buttonLabel: t.common.buttons.next,
+                  onPressed: () {
+                    context.goNamed(AppRoutes.onboardingProfile);
+                  }),
             ]),
           ),
         ),

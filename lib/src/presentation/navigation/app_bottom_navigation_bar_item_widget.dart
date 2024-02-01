@@ -9,13 +9,12 @@ class AppBottomNavigationBarItemWidget extends StatelessWidget {
   final bool isActive;
   final VoidCallback onTap;
 
-  const AppBottomNavigationBarItemWidget({
-    required this.image,
-    this.label = '',
-    required this.isActive,
-    required this.onTap,
-    super.key
-  });
+  const AppBottomNavigationBarItemWidget(
+      {required this.image,
+      this.label = '',
+      required this.isActive,
+      required this.onTap,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,33 +30,29 @@ class AppBottomNavigationBarItemWidget extends StatelessWidget {
           children: [
             AnimatedContainer(
               duration: const Duration(milliseconds: 250),
-              width: isActive ?
-                AppSizes.bottomNavigationBarActiveItemSize :
-                AppSizes.bottomNavigationBarItemSize,
-              height: isActive ?
-                AppSizes.bottomNavigationBarActiveItemSize :
-                AppSizes.bottomNavigationBarItemSize,
+              width: isActive
+                  ? AppSizes.bottomNavigationBarActiveItemSize
+                  : AppSizes.bottomNavigationBarItemSize,
+              height: isActive
+                  ? AppSizes.bottomNavigationBarActiveItemSize
+                  : AppSizes.bottomNavigationBarItemSize,
               child: SvgPicture.asset(
                 image,
-                colorFilter: ColorFilter.mode(
-                  // isActive ?
-                  // Theme.of(context)
-                  //   .bottomNavigationBarTheme
-                  //   .selectedItemColor! :
-                  // Theme.of(context)
-                  //   .bottomNavigationBarTheme
-                  //   .unselectedItemColor!,
-                  Colors.white,
-                  BlendMode.srcIn
-                ),
+                colorFilter: const ColorFilter.mode(
+                    // isActive ?
+                    // Theme.of(context)
+                    //   .bottomNavigationBarTheme
+                    //   .selectedItemColor! :
+                    // Theme.of(context)
+                    //   .bottomNavigationBarTheme
+                    //   .unselectedItemColor!,
+                    Colors.white,
+                    BlendMode.srcIn),
                 fit: BoxFit.cover,
                 placeholderBuilder: (BuildContext context) => Container(
                   width: AppSizes.bottomNavigationBarItemSize,
                   height: AppSizes.bottomNavigationBarItemSize,
-                  decoration: const BoxDecoration(
-                    color: Colors.grey,
-                    shape: BoxShape.circle
-                  ),
+                  decoration: const BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
                 ),
               ),
             ),
@@ -70,11 +65,8 @@ class AppBottomNavigationBarItemWidget extends StatelessWidget {
               // Theme.of(context)
               //   .bottomNavigationBarTheme
               //   .unselectedLabelStyle!,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12.0,
-                fontWeight: FontWeight.w600
-              ),
+              style:
+                  const TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w600),
               child: Text(
                 label,
                 style: const TextStyle(
