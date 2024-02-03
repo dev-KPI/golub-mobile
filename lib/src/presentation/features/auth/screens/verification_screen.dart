@@ -153,10 +153,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 ],
               ),
               const SizedBox(height: 36.0),
-              ElevatedButtonWidget(
+              GButton(
                   buttonLabel: t.common.buttons.next,
                   onPressed: () {
-                    context.goNamed(AppRoutes.onboardingProfile);
+                    context.pushNamed(AppRoutes.onboardingProfile);
                   }),
             ]),
           ),

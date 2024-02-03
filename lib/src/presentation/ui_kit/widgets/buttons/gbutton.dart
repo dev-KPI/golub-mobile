@@ -3,7 +3,7 @@ import 'package:golub/src/presentation/ui_kit/theme/app_colors.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_sizes.dart';
 import 'package:golub/src/presentation/ui_kit/theme/app_styles.dart';
 
-class ElevatedButtonWidget extends StatelessWidget {
+class GButton extends StatelessWidget {
   final double? width;
   final double? height;
   final double? borderRadius;
@@ -12,7 +12,7 @@ class ElevatedButtonWidget extends StatelessWidget {
   final bool isLoading;
   final bool isDisabled;
 
-  const ElevatedButtonWidget({
+  const GButton({
     required this.onPressed,
     this.width,
     this.height,

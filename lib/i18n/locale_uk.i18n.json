@@ -2,10 +2,14 @@
   "@@locale": "uk",
   "common": {
     "buttons": {
-      "next": "Далі"
+      "next": "Далі",
+      "done": "Done"
     },
     "placeholders": {
       "email": "Емейл"
+    },
+    "inputs": {
+      "profileHint": "Profile Name"
     }
   },
   "errors": {

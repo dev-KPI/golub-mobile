@@ -36,6 +36,7 @@ dev_dependencies:
   build_runner: 2.4.6
   injectable_generator: 2.4.1
   slang_build_runner: 3.28.0
+  flutter_launcher_icons: 0.13.1
 
 flutter:
   uses-material-design: true
@@ -55,3 +56,8 @@ flutter:
      fonts:
        - asset: assets/fonts/roboto/roboto-regular.ttf
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/logo.png"
+  remove_alpha_ios: true

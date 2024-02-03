@@ -172,7 +172,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         }
                       },
                       builder: (BuildContext context, AuthState state) {
-                        return ElevatedButtonWidget(
+                        return GButton(
                           isDisabled: _authBloc.isButtonDisabled,
                           isLoading: state.status == AuthStatus.loading,
                           onPressed: () => _authBloc.add(AuthenticateByEmailEvent()),

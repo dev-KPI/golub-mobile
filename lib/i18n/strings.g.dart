@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 28 (14 per locale)
+/// Strings: 32 (16 per locale)
 ///
-/// Built on 2024-01-31 at 19:44 UTC
+/// Built on 2024-02-03 at 15:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -162,6 +162,7 @@ class _StringsCommonEn {
 	// Translations
 	late final _StringsCommonButtonsEn buttons = _StringsCommonButtonsEn._(_root);
 	late final _StringsCommonPlaceholdersEn placeholders = _StringsCommonPlaceholdersEn._(_root);
+	late final _StringsCommonInputsEn inputs = _StringsCommonInputsEn._(_root);
 }
 
 // Path: errors
@@ -194,6 +195,7 @@ class _StringsCommonButtonsEn {
 
 	// Translations
 	String get next => 'Next';
+	String get done => 'Done';
 }
 
 // Path: common.placeholders
@@ -204,6 +206,16 @@ class _StringsCommonPlaceholdersEn {
 
 	// Translations
 	String get email => 'Email';
+}
+
+// Path: common.inputs
+class _StringsCommonInputsEn {
+	_StringsCommonInputsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get profileHint => 'Profile Name';
 }
 
 // Path: errors.validation
@@ -292,6 +304,7 @@ class _StringsCommonUk implements _StringsCommonEn {
 	// Translations
 	@override late final _StringsCommonButtonsUk buttons = _StringsCommonButtonsUk._(_root);
 	@override late final _StringsCommonPlaceholdersUk placeholders = _StringsCommonPlaceholdersUk._(_root);
+	@override late final _StringsCommonInputsUk inputs = _StringsCommonInputsUk._(_root);
 }
 
 // Path: errors
@@ -324,6 +337,7 @@ class _StringsCommonButtonsUk implements _StringsCommonButtonsEn {
 
 	// Translations
 	@override String get next => 'Далі';
+	@override String get done => 'Done';
 }
 
 // Path: common.placeholders
@@ -334,6 +348,16 @@ class _StringsCommonPlaceholdersUk implements _StringsCommonPlaceholdersEn {
 
 	// Translations
 	@override String get email => 'Емейл';
+}
+
+// Path: common.inputs
+class _StringsCommonInputsUk implements _StringsCommonInputsEn {
+	_StringsCommonInputsUk._(this._root);
+
+	@override final _StringsUk _root; // ignore: unused_field
+
+	// Translations
+	@override String get profileHint => 'Profile Name';
 }
 
 // Path: errors.validation
@@ -391,7 +415,9 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'common.buttons.next': return 'Next';
+			case 'common.buttons.done': return 'Done';
 			case 'common.placeholders.email': return 'Email';
+			case 'common.inputs.profileHint': return 'Profile Name';
 			case 'errors.validation.invalidEmail': return 'Please enter a valid email';
 			case 'screens.auth.title': return 'Authentication';
 			case 'screens.auth.description': return 'Please enter your credentials to login.';
@@ -413,7 +439,9 @@ extension on _StringsUk {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'common.buttons.next': return 'Далі';
+			case 'common.buttons.done': return 'Done';
 			case 'common.placeholders.email': return 'Емейл';
+			case 'common.inputs.profileHint': return 'Profile Name';
 			case 'errors.validation.invalidEmail': return 'Введіть коректний email';
 			case 'screens.auth.title': return 'Авторизація';
 			case 'screens.auth.description': return 'Введіть email для авторизації';

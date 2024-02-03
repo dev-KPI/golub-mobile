@@ -2,10 +2,14 @@
   "@@locale": "en",
   "common": {
     "buttons": {
-      "next": "Next"
+      "next": "Next",
+      "done": "Done"
     },
     "placeholders": {
       "email": "Email"
+    },
+    "inputs": {
+      "profileHint": "Profile Name"
     }
   },
   "errors": {
